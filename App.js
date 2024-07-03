@@ -1,11 +1,17 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import Home from './src/screens/Home';
+import SetPetInfo from './src/screens/SetPetInfo';
+import DataPet from './src/screens/DataPet'
+import PruebaComponentes from './src/screens/PruebaComponentes';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+{/*       <Home /> */}
+       <SetPetInfo />
+      {/* <DataPet /> */}
+      {/* <PruebaComponentes /> */}
     </View>
   );
 }
