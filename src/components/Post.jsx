@@ -2,7 +2,7 @@ import { Image, Pressable, StyleSheet, Text, View } from 'react-native'
 import { AntDesign } from '@expo/vector-icons';
 import { useState } from 'react';
 
-const Post = () => {
+const Post = ({ petName, postImg, postMessage }) => {
     const [like, setLike] = useState(false)
 
 
@@ -14,20 +14,23 @@ const Post = () => {
     return (
         <View style={styles.container}>
             <Pressable onPress={() => { console.log('hola'); }}>
-                <Text style={styles.userName}>Kala</Text>
+                <Text style={styles.userName}>{petName}</Text>
             </Pressable>
-            <Image style={styles.postImg} source={require('../../assets/ImgPrueba/Kalita.jpg')} />
-            {/* </Image> */}
+            <View style={styles.imgContainer}>
+
+                <Image style={[styles.postImg]} resizeMethod='contain' source={require('../../assets/ImgPrueba/Kalita.jpg')} />
+            </View>
+
             <View style={styles.reactionsContainer}>
 
                 <Pressable style={styles.pressableLike} onPress={handleLike}>
                     {!like ? <AntDesign name="staro" size={24} color="gold" />
                         : <AntDesign name="star" size={24} color="gold" />}
                 </Pressable>
-                <Text>oxoxoxoox</Text>
+                <Text>contador de likes</Text>
             </View>
             <View>
-                <Text>Cuando era chiquita y no sabia nada</Text>
+                <Text>{postMessage}</Text>
             </View>
 
         </View>
@@ -38,18 +41,26 @@ export default Post
 
 const styles = StyleSheet.create({
     container: {
-        width: 300,
+        width: '100%',
+        
 
     },
     userName: {
         padding: 10,
         fontWeight: 'bold',
     },
-    postImg: {
+    imgContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
         width: '100%',
-        height: 300,
+        overflow: 'hidden',
     },
-    reactionsContainer:{
+    postImg: {
+        aspectRatio: 1/1,
+        width: '100%',
+    },
+    reactionsContainer: {
         flexDirection: 'row',
         padding: 5,
         gap: 5,

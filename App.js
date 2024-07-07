@@ -1,18 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-import Home from './src/screens/Home';
-import SetPetInfo from './src/screens/SetPetInfo';
-import DataPet from './src/screens/DataPet'
-import PruebaComponentes from './src/screens/PruebaComponentes';
+import Navigator from './src/navigation/Navigator';
+
 
 export default function App() {
   return (
-    <View style={styles.container}>
-{/*       <Home /> */}
-       <SetPetInfo />
-      {/* <DataPet /> */}
-      {/* <PruebaComponentes /> */}
-    </View>
+    
+      <Navigator />
+    
   );
 }
 

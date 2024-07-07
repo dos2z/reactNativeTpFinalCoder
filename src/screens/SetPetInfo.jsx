@@ -13,7 +13,7 @@ const SetPetInfo = () => {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.sectionTitle}>Datos de la Mascota</Text>
+
             <TextInput style={styles.petName} placeholder='Nombre' ></TextInput>
             <Image style={styles.petProfileImage} source={require("../../assets/ImgPrueba/Kalita.jpg")}></Image>
 
@@ -22,12 +22,15 @@ const SetPetInfo = () => {
                 <Pressable style={styles.selectButton}>
                     <MaterialCommunityIcons name="cat" size={48} color="orange" />
                 </Pressable>
-                <Pressable style={styles.selectButton}>
+                <Pressable style={(pressed) => [styles.selectButton, { pressed: { background: { opacity: 0.2 } } }]} >
                     <MaterialCommunityIcons name="dog" size={48} color="brown" />
                 </Pressable>
 
                 <Pressable style={styles.selectButton}>
                     <MaterialCommunityIcons name="bird" size={48} color="green" />
+                </Pressable>
+                <Pressable style={styles.selectButton}>
+                    <MaterialCommunityIcons name="rabbit" size={48} color="pink" />
                 </Pressable>
             </View>
 
@@ -64,7 +67,10 @@ export default SetPetInfo
 
 const styles = StyleSheet.create({
     container: {
+        flex: 1,
         gap: 20,
+        alignItems: 'center',
+        width: '100%'
     },
     sectionTitle: {
         fontWeight: 'bold',
@@ -73,6 +79,7 @@ const styles = StyleSheet.create({
         fontSize: 48,
         fontWeight: 'bold',
         marginBottom: 50,
+        width: '90%',
     },
     petProfileImage: {
         width: 200,
@@ -84,6 +91,7 @@ const styles = StyleSheet.create({
     selectContainer: {
         flexDirection: 'row',
         justifyContent: 'space-evenly',
+        gap: 20,
     },
     selectButton: {
         borderWidth: 1,
